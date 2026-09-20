@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1游戏-极速竞技与真实驾驶模拟指南</title>
+    <meta name="description" content="F1游戏专业评测与推荐平台，涵盖F1 2024、F1 23、F1 22等年度续作及经典模拟赛车游戏，提供下载指南、配置要求、操作技巧及赛季模式攻略。">
+    <meta name="keywords" content="F1游戏, F1赛车游戏, F1 2024, 模拟赛车, 网页游戏, 驾驶模拟">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #00d2be;
+            --primary-dark: #00a89b;
+            --accent-color: #e10600;
+            --bg-color: #0b0c10;
+            --card-bg: #1f2833;
+            --text-main: #c5c6c7;
+            --text-white: #ffffff;
+            --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: rgba(11, 12, 16, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-white);
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(11, 12, 16, 0.7), rgba(11, 12, 16, 0.9)), 
+                        url('https://picsum.photos/seed/f1racing/1920/1080.jpg') center/cover no-repeat;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to top, var(--bg-color), transparent);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+            animation: fadeIn Up 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--text-white);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #ddd;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent-color);
+            color: var(--text-white);
+            font-weight: bold;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .cta-button:hover {
+            background-color: #ff1f2d;
+            transform: translateY(-2px);
+        }
+
+        /* 内容区块通用 */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 40px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--text-white);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -17px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+        }
+
+        .section-link {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* 游戏推荐网格 */
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .game-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary-color);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 25px;
+        }
+
+        .card-badge {
+            display: inline-block;
+            background-color: rgba(0, 210, 190, 0.1);
+            color: var(--primary-color);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            color: var(--text-white);
+            margin-bottom: 10px;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: #888;
+            margin-bottom: 20px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .card-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .card-btn:hover {
+            background-color: var(--primary-color);
+            color: #000;
+        }
+
+        /* 配置指南表格 */
+        .guide-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .guide-table th, .guide-table td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .guide-table th {
+            background-color: rgba(0, 0, 0, 0.2);
+            color: var(--text-white);
+            font-weight: 600;
+        }
+
+        .guide-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .guide-table tr:hover {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+        }
+
+        .tag-high { background-color: rgba(225, 6, 0, 0.2); color: var(--accent-color); }
+        .tag-med { background-color: rgba(255, 165, 0, 0.2); color: #ffa500; }
+        .tag-low { background-color: rgba(0, 210, 190, 0.2); color: var(--primary-color); }
+
+        /* 操作技巧列表 */
+        .tips-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+        }
+
+        .tip-item {
+            background-color: rgba(255, 255, 255, 0.03);
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .tip-item h3 {
+            color: var(--text-white);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .tip-item p {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #050505;
+            padding: 50px 0 20px;
+            margin-top: 50px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--text-white);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.85rem;
+            color: #555;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .nav-links { display: none; } /* 简化处理：移动端隐藏菜单 */
+            .section-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .tips-list { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <span>⚡</span> F1 GAME
+            </a>
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#games">游戏推荐</a>
+                <a href="#guide">配置指南</a>
+                <a href="#tips">操作技巧</a>
+                <a href="#faq">常见问题</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>体验 F1 赛车极致魅力</h1>
+                <p>从 F1 2024 年度新作到经典模拟赛车，为您提供最全面的硬件配置建议、操作指南及游戏下载资源。</p>
+                <a href="#games" class="cta-button">开始探索</a>
+            </div>
+        </section>
+
+        <!-- 游戏推荐 -->
+        <section id="games" class="container">
+            <div class="section-header">
+                <h2 class="section-title">热门 F1 游戏</h2>
+                <a href="#" class="section-link">查看全部 &rarr;</a>
+            </div>
+            
+            <div class="game-grid">
+                <!-- Game Card 1 -->
+                <article class="game-card">
+                    <img src="https://picsum.photos/seed/f1game2024/400/250" alt="F1 2024 游戏封面" class="card-image">
+                    <div class="card-body">
+                        <span class="card-badge">年度新作</span>
+                        <h3 class="card-title">F1 2024</h3>
+                        <p class="card-desc">Codemasters 全新力作，包含全新的车手和车队，支持 2024 赛季规则，带来最真实的驾驶体验。</p>
+                        <div class="card-meta">
+                            <span>平台: PC / PS5 / Xbox</span>
+                            <span>类型: 竞速</span>
+                        </div>
+                        <button class="card-btn" onclick="showDetail('F1 2024')">查看详情</button>
+                    </div>
+                </article>
+
+                <!-- Game Card 2 -->
+                <article class="game-card">
+                    <img src="https://picsum.photos/seed/f1game23/400/250" alt="F1 23 游戏封面" class="card-image">
+                    <div class="card-body">
+                        <span class="card-badge">高性价比</span>
+                        <h3 class="card-title">F1 23</h3>
+                        <p class="card-desc">引入了 F1 Academy 赛车系列，包含更丰富的单人职业模式，画面表现与物理引擎保持高水平。</p>
+                        <div class="card-meta">
+                            <span>平台: PC / PS5 / Xbox</span>
+                            <span>类型: 竞速</span>
+                        </div>
+                        <button class="card-btn" onclick="showDetail('F1 23')">查看详情</button>
+                    </div>
+                </article>
+
+                <!-- Game Card 3 -->
+                <article class="game-card">
+                    <img src="https://picsum.photos/seed/f1game22/400/250" alt="F1 22 游戏封面" class="card-image">
+                    <div class="card-body">
+                        <span class="card-badge">经典推荐</span>
+                        <h3 class="card-title">F1 22</h3>
+                        <p class="card-desc">支持 VR 设备，拥有令人惊叹的视觉效果和真实的物理反馈，是 VR 玩家的首选 F1 游戏。</p>
+                        <div class="card-meta">
+                            <span>平台: PC / PS5 / Xbox</span>
+                            <span>类型: 竞速</span>
+                        </div>
+                        <button class="card-btn" onclick="showDetail('F1 22')">查看详情</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 配置指南 -->
+        <section id="guide" style="background-color: #0f1115;">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">硬件配置指南</h2>
+                </div>
+                
+                <div style="overflow-x: auto;">
+                    <table class="guide-table">
+                        <thead>
+                            <tr>
+                                <th>游戏版本</th>
+                                <th>最低配置</th>
+                                <th>推荐配置</th>
+                                <th>VR 支持情况</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>F1 2024</strong></td>
+                                <td>
+                                    <span class="tag tag-low">低画质 60FPS</span><br>
+                                    i5-8400 / GTX 1060 6GB
+                                </td>
+                                <td>
+                                    <span class="tag tag-med">高画质 60FPS</span><br>
+                                    i7-10700 / RTX 3070
+                                </td>
+                                <td>支持</td>
+                            </tr>
+                            <tr>
+                                <td><strong>F1 23</strong></td>
+                                <td>
+                                    <span class="tag tag-low">低画质 60FPS</span><br>
+                                    i5-8400 / GTX 1060 3GB
+                                </td>
+                                <td>
+                                    <span class="tag tag-med">高画质 60FPS</span><br>
+                                    i7-10700 / RTX 3070
+                                </td>
+                                <td>支持</td>
+                            </tr>
+                            <tr>
+                                <td><strong>F1 22</strong></td>
+                                <td>
+                                    <span class="tag tag-low">低画质 60FPS</span><br>
+                                    i5-8400 / GTX 1060 3GB
+                                </td>
+                                <td>
+                                    <span class="tag tag-med">高画质 60FPS</span><br>
+                                    i7-10700 / RTX 3070
+                                </td>
+                                <td>原生支持</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 操作技巧 -->
+        <section id="tips" class="container">
+            <div class="section-header">
+                <h2 class="section-title">进阶操作技巧</h2>
+            </div>
+
+            <div class="tips-list">
+                <div class="tip-item">
+                    <h3>刹车点控制</h3>
+                    <p>在 F1 游戏中，利用屏幕上的刹车辅助线作为参考。不要完全依赖辅助线，尝试在弯道入弯前提前 1-2 个红绿灯柱开始刹车，以获得更快的出弯速度。</p>
+                </div>
+                <div class="tip-item">
+                    <h3>DRS 使用时机</h3>
+                    <p>DRS (可调尾翼) 是超车的关键。通常在距离后车超过 1 秒距离且进入 DRS 区域后开启。注意观察仪表盘上的 DRS 状态指示灯。</p>
+                </div>
+                <div class="tip-item">
+                    <h3>方向盘设置</h3>
+                    <p>如果你使用方向盘，建议开启震动反馈。调整震动强度以反映路面摩擦力，低速时震动较小，高速弯道摩擦力大时震动会明显增强。</p>
+                </div>
+                <div class="tip-item">
+                    <h3>轮胎管理</h3>
+                    <p>在长距离比赛中，注意观察轮胎温度和磨损情况。避免在安全区外进行不必要的轮胎磨损，合理利用进站策略是获胜的关键。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" style="background-color: #0f1115;">
+            <div class="container" style="max-width: 800px;">
+                <div class="section-header">
+                    <h2 class="section-title">常见问题 (FAQ)</h2>
+                </div>
+                
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <details style="background-color: var(--card-bg); padding: 20px; border-radius: 6px; cursor: pointer;">
+                        <summary style="font-weight: 600; color: var(--text-white); font-size: 1.1rem;">F1 游戏支持哪些 VR 设备？</summary>
+                        <p style="margin-top: 15px; color: #aaa; font-size: 0.95rem;">F1 22 及之后的版本原生支持主流 VR 头显，包括 Oculus Quest 2, HTC Vive, Valve Index 以及 Windows Mixed Reality 设备。</p>
+                    </details>
+
+                    <details style="background-color: var(--card-bg); padding: 20px; border-radius: 6px; cursor: pointer;">
+                        <summary style="font-weight: 600; color: var(--text-white); font-size: 1.1rem;">如何解决游戏卡顿或掉帧问题？</summary>
+                        <p style="margin-top: 15px; color: #aaa; font-size: 0.95rem;">建议检查显卡驱动是否为最新版本。在游戏设置中，将渲染分辨率调整为显示器分辨率，并将画面预设设置为“自定义”，适当降低阴影和反射质量。</p>
+                    </details>
+
+                    <details style="background-color: var(--card-bg); padding: 20px; border-radius: 6px; cursor: pointer;">
+                        <summary style="font-weight: 600; color: var(--text-white); font-size: 1.1rem;">不同平台之间的联机互通吗？</summary>
+                        <p style="margin-top: 15px; color: #aaa; font-size: 0.95rem;">F1 游戏通常支持同平台联机。PC 玩家通常无法直接与主机（PS5/Xbox）玩家联机，除非双方使用相同的游戏版本且通过特定的跨平台服务（如 EA App）连接。</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于 F1 GAME</h4>
+                    <p style="color: #666; font-size: 0.9rem;">我们致力于为赛车游戏爱好者提供最新的资讯、详尽的硬件评测和实用的驾驶技巧分享。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">游戏下载</a></li>
+                        <li><a href="#">硬件评测</a></li>
+                        <li><a href="#">赛事资讯</a></li>
+                        <li><a href="#">社区论坛</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>支持</h4>
+                    <ul>
+                        <li><a href="#">联系我们</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">免责声明</a></li>
+                        <li><a href="#">广告合作</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2024 F1 Game Guide. All rights reserved. 本网站内容仅供学习参考。
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的交互脚本
+        function showDetail(gameName) {
+            // 模拟跳转或弹出详情
+            console.log("User clicked on " + gameName);
+            // 在实际应用中，这里可以使用 window.location.href 跳转
+            // 或者显示一个模态框
+            const details = {
+                'F1 2024': 'F1 2024 是 Codemasters 发布的最新赛车游戏，包含最新的车手和车队数据。',
+                'F1 23': 'F1 23 引入了 F1 Academy 赛车系列，增强了单人职业模式的深度。',
+                'F1 22': 'F1 22 是一款支持 VR 的赛车游戏，提供了极致的沉浸感。'
+            };
+            alert(details[gameName] || "正在加载详情...");
+        }
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
