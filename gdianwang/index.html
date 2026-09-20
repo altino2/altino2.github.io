@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="g点网专注于成人健康与两性情感科普，提供专业、科学的性健康知识分享、情感关系咨询及私密交流社区。">
+    <meta name="keywords" content="g点网,两性健康,性教育,情感咨询,私密社区">
+    <title>g点网-专业两性健康科普与情感交流平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #8B5E3C;
+            --primary-hover: #6D462E;
+            --secondary-color: #FDFBF7;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-body: #F7F5F0;
+            --bg-card: #FFFFFF;
+            --spacing-unit: 16px;
+            --border-radius: 8px;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border-radius: var(--border-radius);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fdfbf7 0%, #f5eadd 100%);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 32px;
+            margin-bottom: 16px;
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: var(--text-light);
+            margin-bottom: 32px;
+        }
+
+        .search-box {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 14px 20px;
+            border-radius: 30px;
+            border: 1px solid #ddd;
+            font-size: 15px;
+            outline: none;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .search-box input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(139, 94, 60, 0.1);
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 48px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -14px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        /* Article Grid */
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .article-card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 180px;
+            background-color: #e0e0e0;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-tag {
+            font-size: 12px;
+            color: var(--primary-color);
+            background-color: rgba(139, 94, 60, 0.1);
+            padding: 4px 8px;
+            border-radius: 4px;
+            align-self: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .card-excerpt {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 16px;
+            flex: 1;
+        }
+
+        .card-meta {
+            font-size: 12px;
+            color: #999;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background: var(--bg-card);
+            padding: 24px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 24px;
+        }
+
+        .widget-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            padding-left: 12px;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .hot-list li {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .hot-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .hot-list a {
+            display: block;
+            font-size: 14px;
+            color: var(--text-main);
+        }
+
+        .hot-list a:hover {
+            color: var(--primary-color);
+        }
+
+        .hot-num {
+            color: #999;
+            font-size: 12px;
+            margin-right: 8px;
+        }
+
+        /* Feature Section */
+        .features {
+            background-color: var(--bg-card);
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+            color: var(--primary-color);
+        }
+
+        .feature-name {
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .feature-desc {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: #fff;
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-answer {
+            color: var(--text-light);
+            font-size: 15px;
+            line-height: 1.6;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c2c2c;
+            color: #ccc;
+            padding: 60px 20px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                padding: 0 12px;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+                padding: 20px;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 24px;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">g<span>点网</span></a>
+            <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">两性科普</a></li>
+                    <li><a href="#">情感咨询</a></li>
+                    <li><a href="#">私密社区</a></li>
+                    <li><a href="#">健康测评</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-outline" onclick="showLoginModal()">登录</button>
+                <button class="btn btn-primary">注册</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>探索身心和谐，构建亲密关系</h1>
+                <p>g点网致力于提供科学、客观、尊重的两性健康知识与情感交流平台，帮助您更好地了解自己，关爱伴侣。</p>
+                <div class="search-box">
+                    <input type="text" placeholder="搜索关于两性健康、情感技巧、生理知识的内容...">
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="main-content">
+                <section>
+                    <div class="section-header">
+                        <h2 class="section-title">热门科普文章</h2>
+                        <a href="#" style="font-size: 14px; color: var(--primary-color);">查看更多 &gt;</a>
+                    </div>
+                    <div class="article-grid">
+                        <article class="article-card">
+                            <img src="https://picsum.photos/seed/sex1/400/250" alt="探索G点区域" class="card-image">
+                            <div class="card-content">
+                                <span class="card-tag">生理科普</span>
+                                <h3 class="card-title"><a href="#">科学探索：如何准确找到并刺激G点区域</a></h3>
+                                <p class="card-excerpt">G点并非神秘莫测，了解其解剖结构与敏感度，是提升亲密生活质量的第一步...</p>
+                                <div class="card-meta">
+                                    <span>2023-10-24</span>
+                                    <span>2.3k 阅读</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="article-card">
+                            <img src="https://picsum.photos/seed/love2/400/250" alt="亲密关系沟通" class="card-image">
+                            <div class="card-content">
+                                <span class="card-tag">情感关系</span>
+                                <h3 class="card-title"><a href="#">打破沉默：如何与伴侣进行深度的性爱沟通</a></h3>
+                                <p class="card-excerpt">沟通是维持长久关系的基石。学会表达需求与界限，让彼此在亲密互动中更加舒适...</p>
+                                <div class="card-meta">
+                                    <span>2023-10-22</span>
+                                    <span>1.8k 阅读</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="article-card">
+                            <img src="https://picsum.photos/seed/health3/400/250" alt="男性健康" class="card-image">
+                            <div class="card-content">
+                                <span class="card-tag">男性健康</span>
+                                <h3 class="card-title"><a href="#">了解早泄：成因分析、预防措施与科学治疗</a></h3>
+                                <p class="card-excerpt">不必过度焦虑，通过心理调节、行为训练及必要时的医疗介入，大多数情况均可改善...</p>
+                                <div class="card-meta">
+                                    <span>2023-10-20</span>
+                                    <span>3.5k 阅读</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="article-card">
+                            <img src="https://picsum.photos/seed/women4/400/250" alt="女性健康" class="card-image">
+                            <div class="card-content">
+                                <span class="card-tag">女性健康</span>
+                                <h3 class="card-title"><a href="#">女性高潮障碍的常见原因与应对策略</a></h3>
+                                <p class="card-excerpt">高潮障碍是许多女性面临的困扰，从生理因素到心理因素，我们需要全面客观地分析...</p>
+                                <div class="card-meta">
+                                    <span>2023-10-18</span>
+                                    <span>4.1k 阅读</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="section-header">
+                        <h2 class="section-title">最新社区动态</h2>
+                    </div>
+                    <div class="article-grid">
+                        <article class="article-card">
+                            <div class="card-content">
+                                <span class="card-tag">情感树洞</span>
+                                <h3 class="card-title"><a href="#">关于婚后性生活平淡，我该如何调整心态？</a></h3>
+                                <p class="card-excerpt">结婚久了，激情褪去，性生活变得像例行公事。大家有什么好的建议吗？</p>
+                                <div class="card-meta">
+                                    <span>用户：匿名</span>
+                                    <span>32 回复</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="article-card">
+                            <div class="card-content">
+                                <span class="card-tag">经验分享</span>
+                                <h3 class="card-title"><a href="#">分享一套实用的亲密接触前戏技巧</a></h3>
+                                <p class="card-excerpt">前戏是点燃激情的关键，不仅仅是身体的接触，更多的是情感的交流...</p>
+                                <div class="card-meta">
+                                    <span>用户：探索者</span>
+                                    <span>56 回复</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </div>
+
+            <aside class="sidebar">
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">热门话题排行</h3>
+                    <ul class="hot-list">
+                        <li><a href="#"><span class="hot-num">1</span>如何提高性持久力</a></li>
+                        <li><a href="#"><span class="hot-num">2</span>女性高潮体验分享</a></li>
+                        <li><a href="#"><span class="hot-num">3</span>两性关系中的边界感</a></li>
+                        <li><a href="#"><span class="hot-num">4</span>避孕套的正确使用方法</a></li>
+                        <li><a href="#"><span class="hot-num">5</span>性爱中的心理博弈</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">专家专栏</h3>
+                    <div class="article-card" style="margin-bottom: 0;">
+                        <div class="card-content">
+                            <span class="card-tag">心理专家</span>
+                            <h3 class="card-title" style="font-size: 15px;">李医生：谈谈性心理对亲密关系的影响</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">健康自测</h3>
+                    <ul class="hot-list">
+                        <li><a href="#">性健康程度自测</a></li>
+                        <li><a href="#">伴侣吸引力指数</a></li>
+                        <li><a href="#">性心理年龄测试</a></li>
+                    </ul>
+                    <button class="btn btn-outline" style="width: 100%; margin-top: 10px;">开始测试</button>
+                </div>
+            </aside>
+        </div>
+
+        <section class="features">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">📚</div>
+                    <div class="feature-name">专业科普</div>
+                    <div class="feature-desc">严谨的医学与心理学知识，拒绝谣言与误导。</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🤝</div>
+                    <div class="feature-name">私密社区</div>
+                    <div class="feature-desc">匿名交流环境，分享经验，寻求共鸣。</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">👨‍⚕️</div>
+                    <div class="feature-name">专家顾问</div>
+                    <div class="feature-desc">邀请资深专家解答您的疑难杂症。</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔒</div>
+                    <div class="feature-name">隐私保护</div>
+                    <div class="feature-desc">严格的数据加密，守护您的个人隐私。</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <div class="container">
+                <div class="section-header" style="justify-content: center; border: none;">
+                    <h2 class="section-title" style="border: none; text-align: center;">常见问题解答 (FAQ)</h2>
+                </div>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">在g点网注册需要提供身份证吗？</div>
+                        <div class="faq-answer">为了保护用户隐私，我们不需要提供敏感的个人身份信息。注册过程简单快捷，请放心使用。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">这里的文章内容是否科学准确？</div>
+                        <div class="faq-answer">是的，所有文章均经过专业编辑团队审核，内容参考权威医学资料与心理学研究。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">如果遇到严重的性健康问题该怎么办？</div>
+                        <div class="faq-answer">建议您及时前往正规医院的泌尿外科或男科/妇科就诊，同时可以参考我们提供的科普文章进行初步了解。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">社区里的交流是否完全匿名？</div>
+                        <div class="faq-answer">是的，社区支持匿名发帖和回复，您的真实身份不会对外展示。</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于g点网</h4>
+                <p style="font-size: 13px; line-height: 1.8;">
+                    g点网是一个专注于两性健康科普、情感咨询与私密交流的互联网平台。我们致力于消除性羞耻，推广科学的性教育，帮助用户建立健康、和谐、尊重的亲密关系。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">专家团队</a></li>
+                    <li><a href="#">用户协议</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>内容分类</h4>
+                <ul>
+                    <li><a href="#">生理科普</a></li>
+                    <li><a href="#">情感咨询</a></li>
+                    <li><a href="#">私密社区</a></li>
+                    <li><a href="#">健康测评</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系方式</h4>
+                <ul>
+                    <li>邮箱：support@gdian.com</li>
+                    <li>客服时间：9:00 - 22:00</li>
+                    <li style="margin-top: 10px;">
+                        <a href="#" style="font-size: 24px;">微信</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 g点网 版权所有 | 本站内容仅供科普参考，不构成医疗建议。</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('main-nav');
+            nav.classList.toggle('active');
+        }
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            item.querySelector('.faq-question').addEventListener('click', () => {
+                // Close others
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) otherItem.classList.remove('active');
+                });
+                // Toggle current
+                item.classList.toggle('active');
+            });
+        });
+
+        function showLoginModal() {
+            // Simple alert simulation for login button
+            alert("请访问官方网站进行注册登录流程。");
+        }
+    </script>
+</body>
+                  </html>
