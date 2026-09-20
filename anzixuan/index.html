@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="安子轩个人官方网站，提供最新作品展示、创作理念分享、粉丝互动社区及官方周边资讯。">
+    <meta name="keywords" content="安子轩,安子轩官网,安子轩作品,安子轩资讯,安子轩周边">
+    <title>安子轩-个人创作展示与官方资讯平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --bg-light: #f9f9f9;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%);
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--accent-color);
+            color: var(--white);
+            border-radius: 50px;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 2rem;
+        }
+
+        /* Featured Works */
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 1rem;
+            color: var(--primary-color);
+        }
+
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .work-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .work-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .work-image {
+            width: 100%;
+            height: 200px;
+            background-color: #ddd;
+            object-fit: cover;
+        }
+
+        .work-info {
+            padding: 1.5rem;
+        }
+
+        .work-info h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+
+        .work-info .meta {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 1rem;
+        }
+
+        .work-info p {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .widget {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .widget h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        .news-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .news-list li:last-child {
+            border-bottom: none;
+        }
+
+        .news-list a {
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .news-list a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background-color: #ecf0f1;
+            color: var(--primary-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            transition: var(--transition);
+        }
+
+        .tag:hover {
+            background-color: var(--accent-color);
+            color: var(--white);
+        }
+
+        /* About Section */
+        .about-section {
+            background-color: var(--white);
+            padding: 4rem 2rem;
+            margin-top: 2rem;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .about-img {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .about-img img {
+            max-width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #bdc3c7;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 1rem;
+            }
+            
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                box-shadow: var(--shadow);
+                padding: 1rem;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <span>安</span>子轩
+            </div>
+            <div class="menu-toggle" id="mobile-menu-btn">☰</div>
+            <nav>
+                <ul id="nav-list">
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#works">作品集</a></li>
+                    <li><a href="#about">关于我</a></li>
+                    <li><a href="#news">动态</a></li>
+                    <li><a href="#contact">联系</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>记录灵感，描绘未来</h1>
+            <p>欢迎来到安子轩的个人创作空间。这里展示了我的最新设计、插画作品以及创作背后的故事。</p>
+            <a href="#works" class="btn">浏览作品</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <main>
+            <!-- Featured Works -->
+            <section id="works">
+                <h2 class="section-title">精选作品</h2>
+                <div class="works-grid">
+                    <article class="work-card">
+                        <img src="https://picsum.photos/seed/art1/400/300" alt="作品预览" class="work-image">
+                        <div class="work-info">
+                            <h3>城市印象系列</h3>
+                            <div class="meta">插画 · 2023年</div>
+                            <p>通过线条与色彩的交织，捕捉现代都市的快节奏与孤独感。</p>
+                            <a href="#" style="color:var(--accent-color); font-weight:bold;">查看详情 &rarr;</a>
+                        </div>
+                    </article>
+                    <article class="work-card">
+                        <img src="https://picsum.photos/seed/art2/400/300" alt="作品预览" class="work-image">
+                        <div class="work-info">
+                            <h3>自然之声</h3>
+                            <div class="meta">摄影 · 2023年</div>
+                            <p>探索自然界的静谧时刻，寻找城市喧嚣之外的宁静角落。</p>
+                            <a href="#" style="color:var(--accent-color); font-weight:bold;">查看详情 &rarr;</a>
+                        </div>
+                    </article>
+                    <article class="work-card">
+                        <img src="https://picsum.photos/seed/art3/400/300" alt="作品预览" class="work-image">
+                        <div class="work-info">
+                            <h3>未来概念设计</h3>
+                            <div class="meta">概念设计 · 2024年</div>
+                            <p>基于对未来生活方式的构想，展示赛博朋克风格的概念草图。</p>
+                            <a href="#" style="color:var(--accent-color); font-weight:bold;">查看详情 &rarr;</a>
+                        </div>
+                    </article>
+                    <article class="work-card">
+                        <img src="https://picsum.photos/seed/art4/400/300" alt="作品预览" class="work-image">
+                        <div class="work-info">
+                            <h3>角色设定集</h3>
+                            <div class="meta">角色设计 · 2023年</div>
+                            <p>为一款独立游戏设计的原创角色，包含三视图与表情包。</p>
+                            <a href="#" style="color:var(--accent-color); font-weight:bold;">查看详情 &rarr;</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section class="about-section" id="about">
+                <h2 class="section-title">关于安子轩</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>你好，我是安子轩。我是一名热衷于视觉艺术与创意设计的创作者。</p>
+                        <p>我的创作灵感大多来源于日常生活的点滴观察，无论是街头巷尾的建筑纹理，还是深夜窗外的月光，都能激发我创作的冲动。我相信好的设计不仅仅是视觉上的享受，更是情感与思想的传递。</p>
+                        <p>在这个网站上，你可以看到我过去几年的部分代表作，也可以了解我的创作历程。如果你对我的作品感兴趣，欢迎通过底部的联系方式与我交流。</p>
+                    </div>
+                    <div class="about-img">
+                        <img src="https://picsum.photos/seed/person/400/400" alt="安子轩头像">
+                    </div>
+                </div>
+            </section>
+
+            <!-- News Section -->
+            <section id="news">
+                <h2 class="section-title">最新动态</h2>
+                <div class="works-grid">
+                    <article class="work-card">
+                        <div class="work-info">
+                            <h3>个人作品展即将开幕</h3>
+                            <div class="meta">2024年5月20日</div>
+                            <p>我的首个线上个人作品展将在下月正式上线，敬请期待！</p>
+                        </div>
+                    </article>
+                    <article class="work-card">
+                        <div class="work-info">
+                            <h3>接受新商业合作邀请</h3>
+                            <div class="meta">2024年4月15日</div>
+                            <p>目前开放部分商业合作档期，欢迎品牌方私信洽谈。</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <aside>
+            <!-- News Widget -->
+            <div class="widget">
+                <h3>站内快讯</h3>
+                <ul class="news-list">
+                    <li><a href="#">2024年度创作计划发布</a></li>
+                    <li><a href="#">关于版权声明的更新</a></li>
+                    <li><a href="#">参与公益插画活动</a></li>
+                    <li><a href="#">新教程上线预告</a></li>
+                    <li><a href="#">粉丝见面会报名开启</a></li>
+                </ul>
+            </div>
+
+            <!-- Tags Widget -->
+            <div class="widget">
+                <h3>热门标签</h3>
+                <div class="tag-cloud">
+                    <a href="#" class="tag">#插画</a>
+                    <a href="#" class="tag">#设计</a>
+                    <a href="#" class="tag">#摄影</a>
+                    <a href="#" class="tag">#原创</a>
+                    <a href="#" class="tag">#生活</a>
+                    <a href="#" class="tag">#艺术</a>
+                </div>
+            </div>
+
+            <!-- Contact Widget -->
+            <div class="widget">
+                <h3>关注我</h3>
+                <p style="font-size:0.9rem; margin-bottom:1rem;">获取最新创作动态与独家内容。</p>
+                <a href="#" class="btn" style="width:100%; text-align:center;">关注微博</a>
+            </div>
+        </aside>
+    </div>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>安子轩</h4>
+                <p>致力于用视觉语言讲述故事，探索设计与生活的无限可能。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#works">作品展示</a></li>
+                    <li><a href="#about">关于作者</a></li>
+                    <li><a href="#news">最新动态</a></li>
+                    <li><a href="#">版权声明</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系方式</h4>
+                <ul>
+                    <li>Email: contact@example.com</li>
+                    <li>WeChat: azx_official</li>
+                    <li>Location: 中国·上海</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 安子轩. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的移动端菜单切换逻辑
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const navList = document.getElementById('nav-list');
+            navList.classList.toggle('active');
+        });
+
+        // 平滑滚动效果
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    // 移动端点击后自动收起菜单
+                    if (window.innerWidth <= 768) {
+                        document.getElementById('nav-list').classList.remove('active');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
