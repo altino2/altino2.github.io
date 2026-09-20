@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="重症肌无力的诊断全面指南，详细解析临床症状表现、临床检查方法（如新斯的明试验、肌电图）、辅助检查项目及鉴别诊断流程。提供科学的就医建议与注意事项。">
+    <meta name="keywords" content="重症肌无力的诊断,重症肌无力症状,新斯的明试验,肌电图检查,重症肌无力鉴别诊断">
+    <title>重症肌无力的诊断-症状识别与科学检查流程指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #00a8cc;
+            --accent-color: #ff6b6b;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--primary-color);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+        }
+
+        /* Container */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--text-dark);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--secondary-color);
+            display: inline-block;
+        }
+
+        /* Symptom Grid */
+        .symptom-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .symptom-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .symptom-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .symptom-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            font-size: 1.25rem;
+        }
+
+        .symptom-card ul li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+            color: var(--text-light);
+        }
+
+        .symptom-card ul li::before {
+            content: "•";
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Diagnostic Process */
+        .process-steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 300px;
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+
+        .step h3 {
+            margin-bottom: 10px;
+        }
+
+        .step p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Tests Table */
+        .test-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .test-table th, .test-table td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .test-table th {
+            background-color: var(--primary-color);
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .test-table tr:hover {
+            background-color: #f1f7fc;
+        }
+
+        .test-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 8px;
+            background-color: #e3f2fd;
+            color: var(--primary-color);
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 15px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .faq-question:hover {
+            background-color: #f9f9f9;
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-light);
+            display: none;
+            border-top: 1px solid #eee;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #bdc3c7;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .disclaimer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Simplified for mobile */
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .process-steps {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                </svg>
+                神经内科指南
+            </div>
+            <nav class="nav-links">
+                <a href="#symptoms">症状识别</a>
+                <a href="#diagnosis">诊断流程</a>
+                <a href="#tests">辅助检查</a>
+                <a href="#faq">常见问题</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>重症肌无力的诊断</h1>
+        <p>全面了解重症肌无力的早期症状、确诊检查方法及鉴别诊断流程，帮助您科学就医，及时获得专业治疗。</p>
+        <a href="#symptoms" class="cta-button">开始检查自查</a>
+    </section>
+
+    <main class="container">
+        
+        <!-- 症状识别部分 -->
+        <section id="symptoms">
+            <h2 class="section-title">症状识别：如何初步判断</h2>
+            <div class="symptom-grid">
+                <article class="symptom-card">
+                    <h3>波动性无力</h3>
+                    <p>典型特征是症状在一天中随活动增加而加重，休息后减轻。</p>
+                    <ul>
+                        <li>晨轻暮重</li>
+                        <li>劳累后加重，休息或睡眠后缓解</li>
+                        <li>极少数患者表现为晨重暮轻</li>
+                    </ul>
+                </article>
+                <article class="symptom-card">
+                    <h3>眼外肌受累</h3>
+                    <p>约90%的患者首发症状为眼肌症状。</p>
+                    <ul>
+                        <li>上睑下垂：单侧或双侧，晨轻暮重</li>
+                        <li>复视：视物重影，眼球活动受限</li>
+                        <li>斜视或眼球震颤</li>
+                    </ul>
+                </article>
+                <article class="symptom-card">
+                    <h3>延髓肌受累</h3>
+                    <p>表现为吞咽困难、构音障碍、咀嚼无力。</p>
+                    <ul>
+                        <li>饮水呛咳</li>
+                        <li>说话声音低沉、鼻音重</li>
+                        <li>抬头困难（颈肌无力）</li>
+                    </ul>
+                </article>
+                <article class="symptom-card">
+                    <h3>全身性症状</h3>
+                    <p>重症肌无力危象及全身肌肉无力。</p>
+                    <ul>
+                        <li>四肢近端无力（上楼、抬臂困难）</li>
+                        <li>呼吸肌受累（呼吸困难）</li>
+                        <li>易疲劳（疲劳试验阳性）</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <!-- 诊断流程部分 -->
+        <section id="diagnosis">
+            <h2 class="section-title">诊断流程：科学就医步骤</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>病史询问</h3>
+                    <p>医生会详细询问症状波动规律、诱发因素（如疲劳、感染、情绪激动）及用药史。</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>体格检查</h3>
+                    <p>重点检查眼睑下垂程度、眼球运动范围、四肢肌力分级及吞咽功能。</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>辅助检查</h3>
+                    <p>结合血清抗体检测、神经电生理检查及影像学检查进行综合判断。</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>鉴别诊断</h3>
+                    <p>排除 Lambert-Eaton 肌无力综合征、脊髓灰质炎后遗症、多发性肌炎等疾病。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 辅助检查部分 -->
+        <section id="tests">
+            <h2 class="section-title">关键辅助检查项目</h2>
+            <div style="overflow-x: auto;">
+                <table class="test-table">
+                    <thead>
+                        <tr>
+                            <th>检查项目</th>
+                            <th>检查方法</th>
+                            <th>临床意义</th>
+                            <th>适用人群</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>血清乙酰胆碱受体抗体</strong></td>
+                            <td>ELISA或免疫印迹法</td>
+                            <td>约85%的全身型患者阳性，90%的单纯眼肌型阳性</td>
+                            <td>初诊筛查</td>
+                        </tr>
+                        <tr>
+                            <td><strong>重复神经电刺激 (RNS)</strong></td>
+                            <td>刺激神经观察肌肉复合动作电位(CMAP)波幅递减</td>
+                            <td>阳性率约90%，对眼肌型可能阴性</td>
+                            <td>全身型患者</td>
+                        </tr>
+                        <tr>
+                            <td><strong>单纤维肌电图 (SFEMG)</strong></td>
+                            <td>检测肌纤维兴奋传递延迟</td>
+                            <td>敏感性和特异性最高，是确诊的金标准之一</td>
+                            <td>疑难病例</td>
+                        </tr>
+                        <tr>
+                            <td><strong>新斯的明试验</strong></td>
+                            <td>注射新斯的明后观察症状改善</td>
+                            <td>阳性结果具有确诊价值，且可判断药物敏感性</td>
+                            <td>辅助确诊</td>
+                        </tr>
+                        <tr>
+                            <td><strong>胸部CT/MRI</strong></td>
+                            <td>影像学检查</td>
+                            <td>寻找胸腺增生或胸腺瘤，指导胸腺切除手术</td>
+                            <td>伴胸腺瘤者</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 鉴别诊断部分 -->
+        <section id="differential">
+            <h2 class="section-title">鉴别诊断：需排除的疾病</h2>
+            <div class="symptom-grid">
+                <article class="symptom-card" style="border-left-color: #6c757d;">
+                    <h3>Lambert-Eaton 肌无力综合征</h3>
+                    <p>特点为近端肌无力，肌电图表现为低频刺激波幅递增，新斯的明试验阴性。</p>
+                </article>
+                <article class="symptom-card" style="border-left-color: #6c757d;">
+                    <h3>多发性肌炎</h3>
+                    <p>表现为对称性近端肌无力，伴有肌肉压痛和肌酶谱显著升高。</p>
+                </article>
+                <article class="symptom-card" style="border-left-color: #6c757d;">
+                    <h3>脊髓灰质炎后遗症</h3>
+                    <p>病史明确，表现为肢体弛缓性瘫痪，无晨轻暮重特征，无眼肌受累。</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- FAQ 常见问题 -->
+        <section id="faq">
+            <h2 class="section-title">常见问题解答</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    重症肌无力能治愈吗？
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    重症肌无力目前尚无法彻底根治，但通过规范的药物治疗（如胆碱酯酶抑制剂）、血浆置换、胸腺手术及免疫调节治疗，大多数患者可以获得长期缓解，生活质量显著提高。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    检查结果阴性就一定不是重症肌无力吗？
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    不一定。部分患者（约占10-15%）抗体检测阴性，但临床表现典型。此时应结合肌电图检查或新斯的明试验结果，必要时进行随访观察。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    日常生活中有哪些注意事项？
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    避免过度劳累、情绪激动和感染（如感冒、肺炎）。用药期间需注意胆碱能副作用，如腹痛、腹泻、流涎等。一旦出现呼吸困难或吞咽严重困难，需立即就医。
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于本站</h4>
+                <p style="font-size: 0.9rem; line-height: 1.6;">
+                    本站旨在提供关于重症肌无力诊断与治疗的科普信息，内容仅供参考，不能替代专业医疗建议。如有身体不适，请及时前往正规医院就诊。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="#symptoms">症状识别</a></li>
+                    <li><a href="#diagnosis">诊断流程</a></li>
+                    <li><a href="#tests">辅助检查</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>免责声明</h4>
+                <ul>
+                    <li>医疗信息仅供参考</li>
+                    <li>具体治疗方案请遵医嘱</li>
+                    <li>切勿自行用药</li>
+                </ul>
+            </div>
+        </div>
+        <div class="disclaimer">
+            &copy; 2023 神经内科健康指南. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        // FAQ 交互逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // 关闭其他打开的项
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // 切换当前项
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
