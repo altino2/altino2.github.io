@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="花都房产-花都最新楼盘信息、二手房交易指南、房价走势分析及购房政策解读。提供花都各区优质房源查询、小区点评及购房实用建议。">
+    <meta name="keywords" content="花都房产,花都楼盘,花都房价,广州花都二手房,花都买房,花都房地产">
+    <title>花都房产-花都最新楼盘与二手房交易指南</title>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #f8f9fa;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --border-color: #e0e0e0;
+            --accent-color: #ff9900;
+            --white: #ffffff;
+            --spacing-unit: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #f4f6f8;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-top {
+            background-color: #f0f2f5;
+            font-size: 12px;
+            color: var(--text-gray);
+            padding: 8px 0;
+        }
+
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .header-main {
+            padding: 15px 0;
+        }
+
+        .header-main .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--text-dark);
+            font-size: 14px;
+            font-weight: normal;
+            margin-left: 5px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .search-bar {
+            display: flex;
+            background: #f0f2f5;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .search-bar input {
+            border: none;
+            padding: 8px 12px;
+            outline: none;
+            width: 200px;
+        }
+
+        .search-bar button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0 15px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0056b3 0%, #003d80 100%);
+            color: white;
+            padding: 60px 0;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 16px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .quick-nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .quick-nav a {
+            background: rgba(255,255,255,0.15);
+            padding: 10px 20px;
+            border-radius: 4px;
+            backdrop-filter: blur(5px);
+        }
+
+        .quick-nav a:hover {
+            background: rgba(255,255,255,0.25);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--white);
+            padding: 20px 0;
+            margin-bottom: 30px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+
+        .stat-item p {
+            font-size: 12px;
+            color: var(--text-gray);
+        }
+
+        /* Main Layout */
+        .main-content {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        /* Property List */
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-title a {
+            font-size: 14px;
+            color: var(--text-gray);
+            font-weight: normal;
+        }
+
+        .property-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .property-img {
+            width: 300px;
+            height: 200px;
+            background-color: #eee;
+            flex-shrink: 0;
+        }
+
+        .property-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .property-info {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .property-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .property-meta {
+            font-size: 14px;
+            color: var(--text-gray);
+            margin-bottom: 15px;
+        }
+
+        .property-meta span {
+            margin-right: 15px;
+        }
+
+        .property-price {
+            font-size: 20px;
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .property-price small {
+            font-size: 14px;
+            color: var(--text-gray);
+            font-weight: normal;
+        }
+
+        .tags {
+            display: flex;
+            gap: 8px;
+        }
+
+        .tag {
+            font-size: 12px;
+            padding: 2px 8px;
+            border-radius: 2px;
+            background: #eef5fc;
+            color: var(--primary-color);
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        .price-trend {
+            height: 200px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            padding-top: 20px;
+        }
+
+        .bar {
+            width: 12%;
+            background: #e0e0e0;
+            border-radius: 4px 4px 0 0;
+            position: relative;
+            transition: height 0.3s;
+        }
+
+        .bar:hover {
+            background: var(--primary-color);
+        }
+
+        .bar span {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 10px;
+            color: var(--text-gray);
+        }
+
+        .area-list li {
+            border-bottom: 1px solid #f0f0f0;
+            padding: 12px 0;
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+        }
+
+        .area-list li:last-child {
+            border-bottom: none;
+        }
+
+        .area-list a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Info Section */
+        .info-section {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .guide-item {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+        }
+
+        .guide-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .guide-item h4 {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .guide-item p {
+            font-size: 13px;
+            color: var(--text-gray);
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: #bdc3c7;
+            padding: 40px 0 20px;
+            margin-top: auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-main .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .property-card {
+                flex-direction: column;
+            }
+
+            .property-img {
+                width: 100%;
+                height: 200px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .guide-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-top">
+        <div class="container">
+            <span>欢迎访问花都房产网，专注花都本地房产资讯</span>
+            <span>今日更新：12条新房 / 8条二手房</span>
+        </div>
+    </div>
+    <div class="header-main">
+        <div class="container">
+            <a href="#" class="logo">
+                花都房产 <span>Real Estate Guide</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">新房楼盘</a></li>
+                    <li><a href="#">二手房</a></li>
+                    <li><a href="#">租房</a></li>
+                    <li><a href="#">房价走势</a></li>
+                    <li><a href="#">购房政策</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="搜索小区、楼盘或区域...">
+                <button>搜索</button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="hero">
+    <div class="container">
+        <h1>发现您的理想家园</h1>
+        <p>提供花都区最新房产交易信息、楼盘动态及购房指南，助您轻松置业。</p>
+        <div class="quick-nav">
+            <a href="#">查看新房</a>
+            <a href="#">二手房精选</a>
+            <a href="#">区域房价</a>
+            <a href="#">购房计算器</a>
+        </div>
+    </div>
+</div>
+
+<div class="stats-bar">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>1,204</h3>
+                <p>在售新房</p>
+            </div>
+            <div class="stat-item">
+                <h3>8,560</h3>
+                <p>在售二手房</p>
+            </div>
+            <div class="stat-item">
+                <h3>12,500</h3>
+                <p>本月成交</p>
+            </div>
+            <div class="stat-item">
+                <h3>35</h3>
+                <p>热门楼盘</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<main class="container">
+    <div class="main-content">
+        <!-- Left Column: Property List -->
+        <section class="property-list">
+            <div class="section-title">
+                <span>最新热门房源</span>
+                <a href="#">查看更多 &gt;</a>
+            </div>
+
+            <!-- Card 1 -->
+            <article class="property-card">
+                <div class="property-img">
+                    <img src="https://picsum.photos/seed/huadu1/600/400" alt="花都雅居乐云湖美镇">
+                </div>
+                <div class="property-info">
+                    <div>
+                        <h2 class="property-title"><a href="#">花都雅居乐云湖美镇</a></h2>
+                        <div class="property-meta">
+                            <span>📍 花都区新华街</span>
+                            <span>🏠 3室2厅 120㎡</span>
+                            <span>💰 280万</span>
+                        </div>
+                        <div class="tags">
+                            <span class="tag">满五唯一</span>
+                            <span class="tag">精装修</span>
+                            <span class="tag">近地铁</span>
+                        </div>
+                    </div>
+                    <div class="property-price">
+                        23,333 <small>元/㎡</small>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="property-card">
+                <div class="property-img">
+                    <img src="https://picsum.photos/seed/huadu2/600/400" alt="融创文旅城">
+                </div>
+                <div class="property-info">
+                    <div>
+                        <h2 class="property-title"><a href="#">融创文旅城</a></h2>
+                        <div class="property-meta">
+                            <span>📍 花都区狮岭镇</span>
+                            <span>🏠 4室2厅 145㎡</span>
+                            <span>💰 450万</span>
+                        </div>
+                        <div class="tags">
+                            <span class="tag">学区房</span>
+                            <span class="tag">低密度</span>
+                            <span class="tag">现房</span>
+                        </div>
+                    </div>
+                    <div class="property-price">
+                        31,034 <small>元/㎡</small>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="property-card">
+                <div class="property-img">
+                    <img src="https://picsum.photos/seed/huadu3/600/400" alt="保利花城">
+                </div>
+                <div class="property-info">
+                    <div>
+                        <h2 class="property-title"><a href="#">保利花城</a></h2>
+                        <div class="property-meta">
+                            <span>📍 花都区花山镇</span>
+                            <span>🏠 2室1厅 89㎡</span>
+                            <span>💰 160万</span>
+                        </div>
+                        <div class="tags">
+                            <span class="tag">刚需盘</span>
+                            <span class="tag">地铁口</span>
+                        </div>
+                    </div>
+                    <div class="property-price">
+                        17,977 <small>元/㎡</small>
+                    </div>
+                </div>
+            </article>
+
+             <!-- Card 4 -->
+             <article class="property-card">
+                <div class="property-img">
+                    <img src="https://picsum.photos/seed/huadu4/600/400" alt="富力天禧花园">
+                </div>
+                <div class="property-info">
+                    <div>
+                        <h2 class="property-title"><a href="#">富力天禧花园</a></h2>
+                        <div class="property-meta">
+                            <span>📍 花都区新华路</span>
+                            <span>🏠 3室2厅 110㎡</span>
+                            <span>💰 210万</span>
+                        </div>
+                        <div class="tags">
+                            <span class="tag">近公交</span>
+                            <span class="tag">生活便利</span>
+                        </div>
+                    </div>
+                    <div class="property-price">
+                        19,090 <small>元/㎡</small>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Right Column: Sidebar -->
+        <aside>
+            <!-- Price Trend -->
+            <div class="sidebar-widget">
+                <div class="section-title">
+                    <span>花都房价走势</span>
+                </div>
+                <div class="price-trend">
+                    <div class="bar" style="height: 40%"><span>1月</span></div>
+                    <div class="bar" style="height: 45%"><span>2月</span></div>
+                    <div class="bar" style="height: 42%"><span>3月</span></div>
+                    <div class="bar" style="height: 50%"><span>4月</span></div>
+                    <div class="bar" style="height: 55%"><span>5月</span></div>
+                    <div class="bar" style="height: 53%"><span>6月</span></div>
+                    <div class="bar" style="height: 60%"><span>7月</span></div>
+                </div>
+                <p style="text-align:center; font-size:12px; color:#999; margin-top:10px;">数据来源：房产大数据监测</p>
+            </div>
+
+            <!-- Area List -->
+            <div class="sidebar-widget">
+                <div class="section-title">
+                    <span>热门区域</span>
+                </div>
+                <ul class="area-list">
+                    <li><a href="#">新华街 <span>12,300元/㎡</span></a></li>
+                    <li><a href="#">狮岭镇 <span>9,800元/㎡</span></a></li>
+                    <li><a href="#">花山镇 <span>8,500元/㎡</span></a></li>
+                    <li><a href="#">炭步镇 <span>7,200元/㎡</span></a></li>
+                    <li><a href="#">花东镇 <span>7,600元/㎡</span></a></li>
+                    <li><a href="#">雅瑶镇 <span>8,100元/㎡</span></a></li>
+                </ul>
+            </div>
+
+            <!-- Ads Placeholder -->
+            <div class="sidebar-widget" style="background:#eee; height:250px; display:flex; align-items:center; justify-content:center; color:#999;">
+                广告位招租
+            </div>
+        </aside>
+    </div>
+
+    <!-- Buying Guide Section -->
+    <section class="info-section">
+        <div class="section-title">
+            <span>花都购房实用指南</span>
+        </div>
+        <div class="guide-grid">
+            <div class="guide-item">
+                <span class="guide-icon">📜</span>
+                <h4>购房政策解读</h4>
+                <p>了解花都区最新的限购、限贷政策，掌握首套房与二套房的认定标准。</p>
+            </div>
+            <div class="guide-item">
+                <span class="guide-icon">💰</span>
+                <h4>公积金贷款指南</h4>
+                <p>花都公积金提取、贷款额度计算及商贷转公积金的最新流程说明。</p>
+            </div>
+            <div class="guide-item">
+                <span class="guide-icon">📝</span>
+                <h4>交易流程详解</h4>
+                <p>从网签、过户到交房，全面解析花都二手房交易全流程注意事项。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="info-section">
+        <div class="section-title">
+            <span>常见问题 (FAQ)</span>
+        </div>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px;">
+            <details style="padding:10px; border-bottom:1px solid #eee; cursor:pointer;">
+                <summary style="font-weight:bold; margin-bottom:5px;">花都区哪些区域适合刚需买房？</summary>
+                <p style="font-size:14px; color:#666; margin-top:5px;">对于刚需购房者，花东镇、花山镇等近郊区域性价比相对较高，且交通配套正在逐步完善。新华街作为中心区，生活配套最为成熟，但房价也相对较贵。</p>
+            </details>
+            <details style="padding:10px; border-bottom:1px solid #eee; cursor:pointer;">
+                <summary style="font-weight:bold; margin-bottom:5px;">花都买房需要什么条件？</summary>
+                <p style="font-size:14px; color:#666; margin-top:5px;">目前花都区执行广州全市统一的限购政策。非广州户籍居民需提供5年社保或个税证明，并在限购区域内限购1套住房。</p>
+            </details>
+            <details style="padding:10px; border-bottom:1px solid #eee; cursor:pointer;">
+                <summary style="font-weight:bold; margin-bottom:5px;">二手房交易税费大概多少？</summary>
+                <p style="font-size:14px; color:#666; margin-top:5px;">二手房税费主要包含契税、个税和增值税。满两年且是唯一住房的房源税费较低，具体金额需根据房屋面积和产权年限计算。</p>
+            </details>
+            <details style="padding:10px; border-bottom:1px solid #eee; cursor:pointer;">
+                <summary style="font-weight:bold; margin-bottom:5px;">融创文旅城属于花都哪个片区？</summary>
+                <p style="font-size:14px; color:#666; margin-top:5px;">融创文旅城位于花都区狮岭镇，是花都重点发展的文旅项目，配套较为完善，适合自住和投资。</p>
+            </details>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>关于花都房产网</h4>
+                <p style="font-size:14px; line-height:1.8;">
+                    花都房产网致力于为花都本地居民及外来购房者提供最及时、最全面的房产信息服务。我们汇集了花都各大开发商的官方楼盘信息，以及真实可靠的二手房交易数据。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#">新房资讯</a></li>
+                    <li><a href="#">二手房出售</a></li>
+                    <li><a href="#">房屋租赁</a></li>
+                    <li><a href="#">房价查询</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>服务支持</h4>
+                <ul>
+                    <li><a href="#">购房指南</a></li>
+                    <li><a href="#">贷款计算器</a></li>
+                    <li><a href="#">地图找房</a></li>
+                    <li><a href="#">联系客服</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系我们</h4>
+                <ul>
+                    <li>电话：020-12345678</li>
+                    <li>邮箱：info@huadufangchan.com</li>
+                    <li>地址：广州市花都区新华路88号</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 花都房产网 版权所有 | 仅供展示使用，不构成投资建议</p>
+        </div>
+    </div>
+</footer>
+
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+                  </html>
