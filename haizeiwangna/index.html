@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>海贼王娜美游戏-官方正版授权与热门同人手游推荐</title>
+    <meta name="description" content="提供海贼王娜美游戏相关资讯，涵盖官方正版授权手游、热门同人手游介绍，包含角色技能解析、游戏攻略及下载指南，助您在航海冒险中体验娜美的战斗魅力。">
+    <meta name="keywords" content="海贼王娜美游戏, 娜美手游, 海贼王手游, 娜美角色扮演, 海贼王同人游戏">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff6600;
+            --secondary-color: #ffb347;
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-radius: 12px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-menu a {
+            font-weight: 500;
+            color: var(--text-main);
+            font-size: 1rem;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #ff9966 0%, #ff5e62 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 32px;
+            opacity: 0.95;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 32px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .nav-menu {
+                display: none;
+            }
+        }
+
+        /* Game Cards */
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .game-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 180px;
+            background-color: #ddd;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0,0,0,0.7);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .card-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 16px;
+            flex-grow: 1;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 16px;
+        }
+
+        .btn-download {
+            width: 100%;
+            padding: 10px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .btn-download:hover {
+            background-color: #e65c00;
+        }
+
+        /* Sidebar */
+        .sidebar-section {
+            background: var(--card-bg);
+            padding: 24px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 32px;
+        }
+
+        .sidebar-title {
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .character-list li {
+            padding: 12px 0;
+            border-bottom: 1px dashed #eee;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .character-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #eee;
+            flex-shrink: 0;
+        }
+
+        .character-info h4 {
+            font-size: 0.95rem;
+            margin-bottom: 2px;
+        }
+
+        .character-info p {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* Guide Section */
+        .guide-section {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-top: 32px;
+        }
+
+        .guide-content h2 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .guide-content h3 {
+            margin: 20px 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .guide-content p, .guide-content li {
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .guide-content ul {
+            padding-left: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 40px 20px;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            margin: 0 10px;
+            color: #bdc3c7;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+
+        /* Utility */
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            background-color: #fff0e6;
+            color: var(--primary-color);
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin-right: 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20M2 12l5-5m-5 5l5 5"/></svg>
+                娜美游戏中心
+            </a>
+            <nav class="nav-menu">
+                <a href="#" class="active">首页</a>
+                <a href="#">官方手游</a>
+                <a href="#">同人佳作</a>
+                <a href="#">角色图鉴</a>
+                <a href="#">下载攻略</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>海贼王娜美游戏</h1>
+            <p>探索以航海冒险为核心，娜美为主角的精彩游戏世界。无论是热血战斗还是轻松养成，这里都有你想要的海贼体验。</p>
+            <a href="#games" class="btn btn-primary">开始冒险</a>
+        </div>
+    </section>
+
+    <div class="container" id="games">
+        <!-- Main Content: Game List -->
+        <main>
+            <div class="section-title">
+                <span>热门海贼王娜美游戏推荐</span>
+                <span style="font-size: 0.9rem; color: #666; font-weight: normal;">更新至 2023 年度盘点</span>
+            </div>
+
+            <div class="game-grid">
+                <!-- Game 1 -->
+                <article class="game-card">
+                    <div class="card-image">
+                        <span class="card-badge">官方正版</span>
+                        <img src="https://picsum.photos/seed/onepiece1/400/250" alt="航海王：壮志雄心游戏截图">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">航海王：壮志雄心</h3>
+                        <p class="card-desc">3D动作格斗手游，还原原作精彩剧情。娜美作为核心角色登场，拥有雷电天候等专属技能。</p>
+                        <div class="card-meta">
+                            <span><span class="tag">格斗</span><span class="tag">动作</span></span>
+                            <span>大小: 4.2GB</span>
+                        </div>
+                        <button class="btn-download">立即下载</button>
+                    </div>
+                </article>
+
+                <!-- Game 2 -->
+                <article class="game-card">
+                    <div class="card-image">
+                        <span class="card-badge">高人气</span>
+                        <img src="https://picsum.photos/seed/nami2/400/250" alt="海贼王热血航线游戏截图">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">海贼王：热血航线</h3>
+                        <p class="card-desc">横版卷轴动作RPG，体验原汁原味的海贼冒险。娜美拥有强力控场技能，是推图利器。</p>
+                        <div class="card-meta">
+                            <span><span class="tag">RPG</span><span class="tag">二次元</span></span>
+                            <span>大小: 2.8GB</span>
+                        </div>
+                        <button class="btn-download">立即下载</button>
+                    </div>
+                </article>
+
+                <!-- Game 3 -->
+                <article class="game-card">
+                    <div class="card-image">
+                        <span class="card-badge">模拟经营</span>
+                        <img src="https://picsum.photos/seed/nami3/400/250" alt="海贼王：梦想指针截图">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">海贼王：梦想指针</h3>
+                        <p class="card-desc">开放世界冒险，建立自己的航海团。娜美负责情报与天气，助你在广阔海域自由探索。</p>
+                        <div class="card-meta">
+                            <span><span class="tag">开放世界</span><span class="tag">模拟</span></span>
+                            <span>大小: 1.5GB</span>
+                        </div>
+                        <button class="btn-download">立即下载</button>
+                    </div>
+                </article>
+
+                <!-- Game 4 -->
+                <article class="game-card">
+                    <div class="card-image">
+                        <span class="card-badge">卡牌策略</span>
+                        <img src="https://picsum.photos/seed/nami4/400/250" alt="海贼王：强者之路截图">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">海贼王：强者之路</h3>
+                        <p class="card-desc">策略卡牌对战，收集娜美等伙伴。组建最强海贼团，挑战世界boss。</p>
+                        <div class="card-meta">
+                            <span><span class="tag">卡牌</span><span class="tag">策略</span></span>
+                            <span>大小: 800MB</span>
+                        </div>
+                        <button class="btn-download">立即下载</button>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Guide Section -->
+            <section class="guide-section">
+                <div class="guide-content">
+                    <h2>娜美角色游戏玩法指南</h2>
+                    <p>在众多海贼王娜美游戏中，娜美通常定位为辅助或控制型角色。掌握以下技巧，能让你在游戏中更好地发挥她的作用。</p>
+                    
+                    <h3>1. 技能搭配建议</h3>
+                    <ul>
+                        <li><strong>雷电天候：</strong> 高伤害AOE技能，适合清理杂兵。</li>
+                        <li><strong>天候棒连打：</strong> 连段技能，适合衔接队友输出。</li>
+                        <li><strong>自然系被动：</strong> 在部分游戏中，利用她的自然属性可以减少受到的魔法伤害。</li>
+                    </ul>
+
+                    <h3>2. 装备与养成</h3>
+                    <p>优先提升娜美的<b>暴击率</b>和<b>法术强度</b>。选择增加敏捷的装备，能让她在战斗中更先手控制敌人。</p>
+
+                    <h3>3. 团队阵容推荐</h3>
+                    <p>娜美与索隆、路飞组成经典三人组，或者与乔巴、乌索普组成辅助输出流，都能在PVE和PVP中取得优异成绩。</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Sidebar -->
+        <aside>
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">娜美同人佳作</h3>
+                <ul class="character-list">
+                    <li>
+                        <div class="character-avatar"><img src="https://picsum.photos/seed/namiavatar1/100/100" alt="娜美头像"></div>
+                        <div class="character-info">
+                            <h4>海贼之娜美航海士</h4>
+                            <p>像素风冒险游戏</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="character-avatar"><img src="https://picsum.photos/seed/namiavatar2/100/100" alt="娜美头像"></div>
+                        <div class="character-info">
+                            <h4>大航海时代：娜美篇</h4>
+                            <p>模拟经营类</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="character-avatar"><img src="https://picsum.photos/seed/namiavatar3/100/100" alt="娜美头像"></div>
+                        <div class="character-info">
+                            <h4>娜美：万里阳光号</h4>
+                            <p>解谜冒险</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">下载须知</h3>
+                <p style="font-size: 0.9rem; color: #666; margin-bottom: 10px;">
+                    请认准官方网站或正规应用商店下载，避免下载到病毒或山寨游戏。
+                </p>
+                <ul style="font-size: 0.9rem; color: #666; padding-left: 20px;">
+                    <li>检查设备兼容性</li>
+                    <li>注意流量消耗</li>
+                    <li>开启游戏加速器（可选）</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">关于我们</a>
+            <a href="#">免责声明</a>
+            <a href="#">隐私政策</a>
+            <a href="#">联系合作</a>
+        </div>
+        <p class="copyright">本站仅提供游戏资讯与资源整理，游戏版权归原版权方所有。海贼王及其角色形象版权归尾田荣一郎及集英社所有。</p>
+    </footer>
+
+</body>
+</html>
